@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  # Sessions routes
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
+  # Users routes
+  get 'signup', to: 'users#new'
+  post 'signup', to: 'users#create'
+
   namespace :admin do
     get 'categories/index'
     get 'categories/new'

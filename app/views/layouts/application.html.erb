@@ -13,6 +13,17 @@
 
   <%= render 'layouts/top_nav' %>
 
+  <div class="text-center pt-3">
+    <% if session[:user_id] %>
+      <p class="text-muted">Welcome, <%= User.find(session[:user_id]).first_name %>! | <%= link_to 'Logout', logout_path, method: :delete %></p>
+    <% else %>
+      <p>
+        <%= link_to 'Sign Up', signup_path, class: 'btn btn-primary me-2' %>
+        <%= link_to 'Login', login_path, class: 'btn btn-secondary' %>
+      </p>
+    <% end %>
+  </div>
+
   <main class="container">
     <%= yield %>
   </main>
